@@ -1,4 +1,4 @@
-package com.continew.uniqbackend.entity;
+package com.continew.uniqbackend.domain;
 
 import lombok.Getter;
 import lombok.Setter;

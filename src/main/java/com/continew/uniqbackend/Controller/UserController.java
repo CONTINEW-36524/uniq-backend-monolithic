@@ -1,7 +1,7 @@
-package com.continew.uniqbackend.controller;
+package com.continew.uniqbackend.Controller;
 
 import com.continew.uniqbackend.UniqBackendApplication;
-import com.continew.uniqbackend.domain.User;
+import com.continew.uniqbackend.entity.User;
 import com.continew.uniqbackend.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

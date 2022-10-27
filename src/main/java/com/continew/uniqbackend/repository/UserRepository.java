@@ -1,6 +1,6 @@
 package com.continew.uniqbackend.repository;
 
-import com.continew.uniqbackend.domain.User;
+import com.continew.uniqbackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

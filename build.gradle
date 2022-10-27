@@ -26,6 +26,12 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    /* 로컬 개발용 db ssh tunneling */
+    // https://mavenlibs.com/maven/dependency/com.jcraft/jsch
+    implementation 'org.hidetake:gradle-ssh-plugin:2.2.0'
+	implementation 'com.jcraft:jsch:0.1.55'
+
+
 }
 
 tasks.named('test') {

@@ -10,14 +10,12 @@ import javax.persistence.Table;
 public class My_uniq {
     @Id
     @Column(name = "id", nullable = false)
-    private int id;
+    private Integer id;
 
     @Column(name = "user_id", nullable = false)
-    private int user_id;
+    private Integer user_id;
 
     @Column(name = "survey_id", nullable = false)
-    private int survey_id;
-
-
+    private Integer survey_id;
 
 }

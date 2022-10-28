@@ -34,7 +34,7 @@ public class MySpaceController {
     @GetMapping("/my-uniq")
     public List<My_uniq> getmyuniq(@RequestParam("user_id") int user_id){
         log.info(MyuniqRepository.findAll().toString());
-                MyuniqRepository.selectSurId(user_id)
+
         return MyuniqRepository.selectSurId(user_id);
     }
 

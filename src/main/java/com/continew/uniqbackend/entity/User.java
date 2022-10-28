@@ -20,7 +20,6 @@ public class User {
     @Column(name = "name", length = 32)
     private String name;
 
-
     @Column(name = "email", length = 45)
     private String email;
 

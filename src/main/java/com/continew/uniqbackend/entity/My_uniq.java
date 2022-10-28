@@ -10,20 +10,14 @@ import javax.persistence.Table;
 public class My_uniq {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private int id;
 
     @Column(name = "user_id", nullable = false)
-    private Integer uid;
+    private int user_id;
 
     @Column(name = "survey_id", nullable = false)
-    private Integer sid;
+    private int survey_id;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 }

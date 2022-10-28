@@ -1,11 +1,14 @@
 package com.continew.uniqbackend.entity;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "my_recent")
 public class My_recent {
     @Id

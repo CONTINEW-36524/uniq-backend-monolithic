@@ -1,6 +1,7 @@
 package com.continew.uniqbackend.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.TypeDef;
 
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "myspace")
 public class Myspace {
     @Id
@@ -29,8 +31,6 @@ public class Myspace {
     @Column(name = "uniq_recent")
     private String uniq_recent;
 
-    public Myspace() {
-    }
 
     public String getId() {
         return user_id;

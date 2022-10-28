@@ -22,11 +22,6 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/")
-    public String user() {
-        return "user";
-    }
-
     @GetMapping("/user")
     public List<User> getAllUser(){
         log.info("user");

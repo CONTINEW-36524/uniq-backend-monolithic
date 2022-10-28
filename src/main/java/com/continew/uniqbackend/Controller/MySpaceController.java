@@ -4,16 +4,15 @@ package com.continew.uniqbackend.Controller;
 import com.continew.uniqbackend.UniqBackendApplication;
 import com.continew.uniqbackend.entity.My_uniq;
 import com.continew.uniqbackend.entity.Myspace;
-import com.continew.uniqbackend.repository.My_favoritesRepository;
-import com.continew.uniqbackend.repository.My_recentRepository;
-import com.continew.uniqbackend.repository.My_uniqRepository;
-import com.continew.uniqbackend.repository.MyspaceRepository;
+import com.continew.uniqbackend.entity.Survey;
+import com.continew.uniqbackend.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @ResponseBody
@@ -23,20 +22,19 @@ public class MySpaceController {
     private static final Logger log = LoggerFactory.getLogger(UniqBackendApplication.class);
 
     @Autowired
-    My_recentRepository MyRecentRepository;
+    private My_uniqRepository MyuniqRepository;
 
     @Autowired
-    My_uniqRepository MyuniqRepository;
+    private SurveyRepository surveyRepository;
 
-    @Autowired
-    My_favoritesRepository MyfavRepository;
 
     @GetMapping("/my-uniq")
-    public List<My_uniq> getmyuniq(@RequestParam("user_id") int user_id){
-        log.info(MyuniqRepository.findAll().toString());
+    public List<Survey> getUniq(@RequestParam("user_id") int user_id){
+        List<Integer> sur = MyuniqRepository.selectSurId(user_id);
+        List<Survey> surveys = surveyRepository.selectSurvey(sur);
+        log.info(surveys.toString());
 
-        return MyuniqRepository.selectSurId(user_id);
+        return surveys;
     }
-
 
 }

@@ -39,11 +39,11 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return "Data{" +
-				"id='" + id + '\'' +
-				", title='" + title + '\'' +
-				", type='" + type + '\'' +
-				", content=" + content +
+		return "{" +
+				"\"id\": \"" + id + '\"' +
+				", \"title\": \"" + title + '\"' +
+				", \"type\": \"" + type + '\"' +
+				", \"content\": " + content +
 				'}';
 	}
 

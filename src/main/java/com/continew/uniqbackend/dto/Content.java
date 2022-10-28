@@ -17,6 +17,6 @@ public class Content {
 	}
 	@Override
 	public String toString() {
-		return "{id=" + id + ", con=" + con + "}";
+		return "{\"id\":\"" + id + "\""+", \"con\": \"" + con + "\"}";
 	}
 }

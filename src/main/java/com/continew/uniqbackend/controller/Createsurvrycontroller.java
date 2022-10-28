@@ -4,11 +4,9 @@ import com.continew.uniqbackend.dto.Surveydata;
 import com.continew.uniqbackend.repository.CreatesurveyRepository;
 import com.continew.uniqbackend.domain.Createsurvey;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -29,5 +27,10 @@ public class Createsurvrycontroller {
 			 Createsurvey saved = createsurveyRepository.save(data2);
 			 System.out.println(saved.toString());
 	 }
+
+	@GetMapping("/respond/survey")
+	public List<Createsurvey> respondsurvey(@RequestParam String url) {
+		return createsurveyRepository.selectAllSQL(url);
+	}
 	    }
 

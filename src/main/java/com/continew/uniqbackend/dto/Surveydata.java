@@ -9,6 +9,15 @@ public class Surveydata {
     String maintitle;
     String subtitle;
     List<Data> data;
+    String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getMaintitle() {
         return maintitle;

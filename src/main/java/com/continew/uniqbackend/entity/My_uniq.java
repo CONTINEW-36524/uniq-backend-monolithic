@@ -29,8 +29,7 @@ public class My_uniq {
 //    }
 //
 //    public void setId(Integer id) {
-//        this.id = id;
-//    }
+//        this.id = id;//    }
 //
 //    public Integer getUid() {
 //        return user_id;

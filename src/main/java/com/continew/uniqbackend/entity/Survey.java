@@ -25,10 +25,10 @@ public class Survey {
     @Column(name = "tag")
     private String tag;
 
-    @Column(name = "like_cnt")
+    @Column(name = "like")
     private String like;
 
-    @Column(name = "create_time")
+    @Column(name = "timestamp")
     private String timestamp;
 
     public Integer getId() {

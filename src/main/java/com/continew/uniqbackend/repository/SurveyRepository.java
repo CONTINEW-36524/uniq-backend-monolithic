@@ -12,7 +12,5 @@ public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     @Query(value = "select * from survey where id in :sur", nativeQuery = true)
     public List<Survey> selectSurvey(@Param(value = "sur") List<Integer> sur);
 
-    //인기 템플릿
-
 
 }

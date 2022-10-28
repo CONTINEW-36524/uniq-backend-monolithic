@@ -2,8 +2,6 @@ package com.continew.uniqbackend.Controller;
 
 
 import com.continew.uniqbackend.UniqBackendApplication;
-import com.continew.uniqbackend.entity.My_uniq;
-import com.continew.uniqbackend.entity.Myspace;
 import com.continew.uniqbackend.entity.Survey;
 import com.continew.uniqbackend.repository.*;
 import org.slf4j.Logger;
@@ -12,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @ResponseBody
@@ -23,6 +20,9 @@ public class MySpaceController {
 
     @Autowired
     private My_uniqRepository MyuniqRepository;
+
+    @Autowired
+    private My_favoritesRepository MyfavRepository;
 
     @Autowired
     private SurveyRepository surveyRepository;
@@ -37,4 +37,12 @@ public class MySpaceController {
         return surveys;
     }
 
+    @GetMapping("/my-favorites")
+    public List<Survey> getFav(@RequestParam("user_id") int user_id){
+        List<Integer> sur = MyfavRepository.selectFav(user_id);
+        List<Survey> surveys = surveyRepository.selectSurvey(sur);
+        log.info(surveys.toString());
+
+        return surveys;
+    }
 }

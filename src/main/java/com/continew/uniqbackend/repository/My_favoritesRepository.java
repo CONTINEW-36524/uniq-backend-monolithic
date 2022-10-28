@@ -1,23 +1,16 @@
 package com.continew.uniqbackend.repository;
 
 import com.continew.uniqbackend.entity.My_favorites;
-import com.continew.uniqbackend.entity.Myspace;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface My_favoritesRepository extends JpaRepository<My_favorites, Integer> {
     //나의 uniq
-    @Override
-    List<My_favorites> findAll();
+    @Query(value = "select survey_id from my_favorites where user_id= :user_id", nativeQuery = true)
+    public List<Integer> selectFav(@Param(value = "user_id") int user_id);
 
-    List<My_favorites> findByUid(Integer uid);
-
-
-
-    //uniq찜 목록
-
-
-    //최근 uniq?
 
 }

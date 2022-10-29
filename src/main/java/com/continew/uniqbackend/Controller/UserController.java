@@ -1,35 +1,26 @@
 package com.continew.uniqbackend.Controller;
 
-import com.continew.uniqbackend.UniqBackendApplication;
-import com.continew.uniqbackend.entity.User;
-import com.continew.uniqbackend.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.continew.uniqbackend.model.OauthToken;
+import com.continew.uniqbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
-@RestController
-@ResponseBody
-
+@RestController //(1)
+@RequestMapping("/oauth")
 public class UserController {
 
-    private static final Logger log = LoggerFactory.getLogger(UniqBackendApplication.class);
-
     @Autowired
-    UserRepository userRepository;
+    private UserService userService; //(2)
 
-    @GetMapping("/")
-    public String user() {
-        return "user";
+    // 프론트에서 인가코드 받아오는 url
+    @GetMapping("/callback/kakao") // (3)
+    public OauthToken getLogin(@RequestParam("code") String code) { //(4)
+        System.out.println(code);
+        // 넘어온 인가 코드를 통해 access_token 발급 //(5)
+        OauthToken oauthToken = userService.getAccessToken(code);
+
+        return oauthToken;
     }
 
-    @GetMapping("/user")
-    public List<User> getAllUser(){
-        log.info("user");
-        return userRepository.findAll();
-    }
 }

@@ -1,4 +1,4 @@
-package com.continew.uniqbackend.repository;
+package com.continew.uniqbackend.entity.repository;
 
 import com.continew.uniqbackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

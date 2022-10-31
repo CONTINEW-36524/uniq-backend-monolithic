@@ -31,6 +31,7 @@ public class User {
     @Column(name = "user_role")
     private String userRole;
 
+
 //    @Column(name = "create_time")
 //    @CreationTimestamp //(4)
 //    private Timestamp createTime;
@@ -46,10 +47,6 @@ public class User {
         this.userRole = userRole;
     }
 
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
 
 }

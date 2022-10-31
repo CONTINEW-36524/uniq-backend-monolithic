@@ -1,8 +1,6 @@
 package com.continew.uniqbackend.Controller;
 import com.continew.uniqbackend.UniqBackendApplication;
 import com.continew.uniqbackend.entity.Survey;
-import com.continew.uniqbackend.repository.My_favoritesRepository;
-import com.continew.uniqbackend.repository.My_uniqRepository;
 import com.continew.uniqbackend.repository.SurveyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

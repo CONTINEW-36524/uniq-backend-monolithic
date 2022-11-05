@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Survey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "idSurvey", nullable = false)
     private Integer id;
 
     @Column(name = "category")
@@ -30,6 +30,9 @@ public class Survey {
 
     @Column(name = "timestamp")
     private String timestamp;
+
+    @Column(name = "url")
+    private String url;
 
     public Integer getId() {
         return id;

@@ -10,17 +10,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@Table(name = "my_uniq")
+@Table(name = "recentSurvey")
 public class My_uniq {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "idRecentSurvey", nullable = false)
     private Integer id;
 
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_code", nullable = false)
     private Integer user_id;
 
-    @Column(name = "survey_id", nullable = false)
+    @Column(name = "idSurvey", nullable = false)
     private Integer survey_id;
 
 

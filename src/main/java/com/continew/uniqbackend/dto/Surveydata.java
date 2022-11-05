@@ -11,6 +11,14 @@ public class Surveydata {
     List<Data> data;
     String url;
 
+    String tag;
+
+    String category;
+
+    String timestamp;
+
+
+
     public String getUrl() {
         return url;
     }

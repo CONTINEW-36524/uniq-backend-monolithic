@@ -1,4 +1,4 @@
-package com.continew.uniqbackend.entity;
+package com.continew.uniqbackend.dto;
 
 import lombok.Data;
 

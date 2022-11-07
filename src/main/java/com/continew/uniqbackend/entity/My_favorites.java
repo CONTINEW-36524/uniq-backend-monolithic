@@ -9,16 +9,16 @@ import javax.persistence.Table;
 
 @Entity
 @NoArgsConstructor
-@Table(name = "favSurvey")
+@Table(name = "fav_survey")
 public class My_favorites {
     @Id
-    @Column(name = "idFavSurvey", nullable = false)
+    @Column(name = "id_fav_survey", nullable = false)
     private Integer id;
 
     @Column(name = "user_code", nullable = false)
     private Integer uid;
 
-    @Column(name = "idSurvey", nullable = false)
+    @Column(name = "id_survey", nullable = false)
     private Integer sid;
 
     public Integer getId() {

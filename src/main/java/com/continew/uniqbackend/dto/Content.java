@@ -3,6 +3,8 @@ package com.continew.uniqbackend.dto;
 public class Content {
 	int id;
 	String con;
+
+
 	public int getId() {
 		return id;
 	}

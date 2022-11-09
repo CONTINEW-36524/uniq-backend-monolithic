@@ -1,6 +1,5 @@
 package com.continew.uniqbackend.repository;
 
-import com.continew.uniqbackend.domain.Createsurvey;
 import com.continew.uniqbackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 

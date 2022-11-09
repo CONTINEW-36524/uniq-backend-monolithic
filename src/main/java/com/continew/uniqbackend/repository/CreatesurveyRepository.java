@@ -11,4 +11,7 @@ public interface CreatesurveyRepository extends JpaRepository<Createsurvey, Stri
 
     @Query(value = "select * from cs where url= :url", nativeQuery = true)
     public List<Createsurvey> selectAllSQL(@Param(value = "url") String url);
+
+    @Query(value = "select * from cs cs1 left join datalist datalist1 on cs1.surveyid=datalist1.surveyid left join contents ct1 on datalist.id=ct1.id", nativeQuery = true)
+    public List<Createsurvey> findrespond(@Param(value = "url") String url);
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "cs")
+
 @NoArgsConstructor
 public class Createsurvey {
     @Id
@@ -26,13 +27,15 @@ public class Createsurvey {
     @Column(name = "datalist", length = 10000)
     private String datalist;
 
+    @Column(name = "url", length = 45)
+    private String url;
 
 
-    public Createsurvey(Long surveyid, String maintitle, String subtitle, String datalist){
+
+    public Createsurvey(Long surveyid, String maintitle, String subtitle){
         this.surveyid=surveyid;
         this.maintitle=maintitle;
         this.subtitle=subtitle;
-        this.datalist=datalist;
     }
 
     @Override

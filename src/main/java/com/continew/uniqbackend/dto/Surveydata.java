@@ -6,6 +6,16 @@ import java.util.List;
 
 public class Surveydata {
 
+    String surveyid;
+
+    public String getSurveyid() {
+        return surveyid;
+    }
+
+    public void setSurveyid(String surveyid) {
+        this.surveyid = surveyid;
+    }
+
     String maintitle;
     String subtitle;
     List<Data> data;
@@ -55,7 +65,7 @@ public class Surveydata {
     }
 
     public Createsurvey toEntity(){
-        return new Createsurvey(null,maintitle,subtitle,data.toString() );
+        return new Createsurvey(null,maintitle,subtitle );
     }
 
 

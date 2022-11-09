@@ -7,17 +7,12 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class Data {
-	private String id;
+	private String did;
 	private String title;
 	private String type;
 	@JsonProperty
 	private List<Content> content;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -40,14 +35,18 @@ public class Data {
 	@Override
 	public String toString() {
 		return "{" +
-				"\"id\": \"" + id + '\"' +
+				"\"did\": \"" + did + '\"' +
 				", \"title\": \"" + title + '\"' +
 				", \"type\": \"" + type + '\"' +
 				", \"content\": " + content +
 				'}';
 	}
 
+	public String getDid() {
+		return did;
+	}
 
-
-
+	public void setDid(String did) {
+		this.did = did;
+	}
 }

@@ -1,6 +1,5 @@
 package com.continew.uniqbackend.dto;
 
-import com.continew.uniqbackend.domain.Createsurvey;
 
 import java.util.List;
 
@@ -20,6 +19,14 @@ public class Surveydata {
     String subtitle;
     List<Data> data;
     String url;
+
+    String tag;
+
+    String category;
+
+    String timestamp;
+
+
 
     public String getUrl() {
         return url;
@@ -64,9 +71,6 @@ public class Surveydata {
                 '}';
     }
 
-    public Createsurvey toEntity(){
-        return new Createsurvey(null,maintitle,subtitle );
-    }
 
 
 }

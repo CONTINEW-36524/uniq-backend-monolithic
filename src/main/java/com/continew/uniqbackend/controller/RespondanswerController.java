@@ -1,10 +1,7 @@
 package com.continew.uniqbackend.controller;
 
-import com.continew.uniqbackend.domain.Createsurvey;
-import com.continew.uniqbackend.domain.RespondE;
+import com.continew.uniqbackend.entity.RespondE;
 import com.continew.uniqbackend.dto.Respond;
-import com.continew.uniqbackend.dto.Surveydata;
-import com.continew.uniqbackend.repository.CreatesurveyRepository;
 import com.continew.uniqbackend.repository.RespondERepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

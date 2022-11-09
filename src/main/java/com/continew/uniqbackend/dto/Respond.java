@@ -1,7 +1,6 @@
 package com.continew.uniqbackend.dto;
 
-import com.continew.uniqbackend.domain.Createsurvey;
-import com.continew.uniqbackend.domain.RespondE;
+import com.continew.uniqbackend.entity.RespondE;
 import lombok.NoArgsConstructor;
 
 import java.util.List;

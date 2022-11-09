@@ -1,11 +1,13 @@
 package com.continew.uniqbackend.repository;
 
-import com.continew.uniqbackend.domain.User;
+import com.continew.uniqbackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface UserRepository extends JpaRepository<User, Long> {
 
-public interface UserRepository extends JpaRepository<User, Integer> {
-    @Override
-    List<User> findAll();
+    // JPA findBy 규칙
+    // select * from user_master where kakao_email = ?
+    User findByKakaoEmail(String kakaoEmail);
+
+    User findByUserCode(Long userCode);
 }

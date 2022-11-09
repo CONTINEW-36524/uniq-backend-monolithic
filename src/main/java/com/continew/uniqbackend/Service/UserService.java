@@ -40,8 +40,8 @@ public class UserService {
         //(4)
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
-        params.add("client_id", "637c722561c612190048a1d771920d91");
-        params.add("redirect_uri", "http://localhost:3000/oauth/callback/kakao");
+        params.add("client_id", System.getenv("UNIQ_KAKAO_REST_API_KEY"));
+        params.add("redirect_uri", System.getenv("UNIQ_KAKAO_REDIRECT_URI"));
         params.add("code", code);
         //params.add("client_secret", "{시크릿 키}"); // 생략 가능!
 

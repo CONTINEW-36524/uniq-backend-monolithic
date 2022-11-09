@@ -1,0 +1,33 @@
+#DB INFO
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: continew36524
+    url: jdbc:mysql://210.109.62.78:10006/uniqdb?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8&connectTimeout=2000&autoReconnect=true&serverTimezone=UTC&useSSL=false
+    username: continew
+
+  #JPA/Hibernate
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+        show-sql: true
+    show-sql: 'true '
+
+##Logging
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type:
+#          descriptor:
+#            sql: DEBUG
+

@@ -40,6 +40,7 @@ public class Survey {
     @Column(name = "writer")
     private String writer;
 
+
     @Column(name = "category")
     private String category;
 

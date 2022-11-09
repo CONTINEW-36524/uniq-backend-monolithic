@@ -1,0 +1,32 @@
+#DB INFO
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: uniq_user
+    url: jdbc:mysql://localhost:3306/uniqdb?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8&connectTimeout=2000&autoReconnect=true&serverTimezone=UTC&useSSL=false
+    username: uniq1234
+
+  #JPA/Hibernate
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+        show-sql: true
+    show-sql: 'true '
+
+#Logging
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql: DEBUG

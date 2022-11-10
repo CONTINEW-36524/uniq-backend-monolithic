@@ -2,6 +2,7 @@ package com.continew.uniqbackend.Controller;
 
 
 import com.continew.uniqbackend.UniqBackendApplication;
+import com.continew.uniqbackend.entity.Recent_survey;
 import com.continew.uniqbackend.entity.Survey;
 import com.continew.uniqbackend.repository.*;
 import org.slf4j.Logger;
@@ -29,18 +30,15 @@ public class MySpaceController {
 
 
     @GetMapping("/my-uniq")
-    public List<Survey> getUniq(@RequestParam("user_id") int user_id){
-        List<Integer> sur = MyuniqRepository.selectSurId(user_id);
-        List<Survey> surveys = surveyRepository.selectSurvey(sur);
-        log.info(surveys.toString());
+    public List<Survey> getMySurvey(@RequestParam("user_id") int user_id){
+        List<Survey> surveys = surveyRepository.findRecentSurvey(user_id);
 
         return surveys;
     }
 
     @GetMapping("/my-favorites")
     public List<Survey> getFav(@RequestParam("user_id") int user_id){
-        List<Integer> sur = MyfavRepository.selectFav(user_id);
-        List<Survey> surveys = surveyRepository.selectSurvey(sur);
+        List<Survey> surveys = surveyRepository.findFavSurvey(user_id);
         log.info(surveys.toString());
 
         return surveys;

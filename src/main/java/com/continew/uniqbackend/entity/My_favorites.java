@@ -2,24 +2,27 @@ package com.continew.uniqbackend.entity;
 
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
 @Table(name = "fav_survey")
 public class My_favorites {
     @Id
-    @Column(name = "id_fav_survey", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idFavSurvey", nullable = false)
     private Integer id;
 
     @Column(name = "user_code", nullable = false)
     private Integer uid;
 
-    @Column(name = "id_survey", nullable = false)
+
+    @Column(name = "idSurvey", nullable = false)
     private Integer sid;
+
+    @ManyToOne(optional=false)
+    @JoinColumn(name="idSurvey", referencedColumnName="id_survey",insertable=false, updatable=false)
+    private Survey survey;
 
     public Integer getId() {
         return id;
@@ -29,4 +32,26 @@ public class My_favorites {
         this.id = id;
     }
 
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
+    public Survey getSurvey() {return survey;}
+
+    public Survey setSurvey() {
+        this.survey = survey;
+        return null;
+    }
 }

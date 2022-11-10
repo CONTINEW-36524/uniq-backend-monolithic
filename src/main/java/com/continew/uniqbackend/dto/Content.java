@@ -5,8 +5,10 @@ public class Content {
 	int conid;
 	String con;
 
+
 	public String getCon_id() {
 		return con_id;
+
 	}
 
 	public void setCon_id(String con_id) {

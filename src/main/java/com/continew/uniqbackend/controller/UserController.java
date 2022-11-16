@@ -1,4 +1,4 @@
-package com.continew.uniqbackend.Controller;
+package com.continew.uniqbackend.controller;
 
 import com.continew.uniqbackend.Service.UserService;
 import com.continew.uniqbackend.UniqBackendApplication;

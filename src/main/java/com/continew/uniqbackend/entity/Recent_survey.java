@@ -14,13 +14,13 @@ import javax.persistence.*;
 public class Recent_survey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idRecentSurvey", nullable = false)
+    @Column(name = "id_recent_survey", nullable = false)
     private Integer id;
 
     @Column(name = "user_code", nullable = false)
     private Integer user_code;
 
-    @Column(name = "idSurvey", nullable = false)
+    @Column(name = "id_survey", nullable = false)
     private Integer idSurvey;
 
 

@@ -18,4 +18,8 @@ public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     public List<Survey> findFavSurvey(@Param(value = "user_id") int user_id);
 
 
+    @Query(value = "select * from survey left join question on survey.id_survey = question.id_survey", nativeQuery = true)
+    public List<Survey> findtest();
+
+
 }

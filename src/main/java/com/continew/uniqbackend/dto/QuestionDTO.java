@@ -6,17 +6,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class Question {
-	private String id;
+public class QuestionDTO {
+	private String did;
 	private String title;
 	private String type;
 	@JsonProperty
-	private List<Content> content;
-	public String getId() {
-		return id;
+	private List<Contentdata> content;
+	public String getDId() {
+		return did;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setDId(String did) {
+		this.did = did;
 	}
 	public String getTitle() {
 		return title;
@@ -30,17 +30,17 @@ public class Question {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public List<Content> getContent() {
+	public List<Contentdata> getContent() {
 		return content;
 	}
-	public void setContent(List<Content> content) {
+	public void setContent(List<Contentdata> content) {
 		this.content = content;
 	}
 
 	@Override
 	public String toString() {
 		return "{" +
-				"\"id\": \"" + id + '\"' +
+				"\"did\": \"" + did + '\"' +
 				", \"title\": \"" + title + '\"' +
 				", \"type\": \"" + type + '\"' +
 				", \"content\": " + content +

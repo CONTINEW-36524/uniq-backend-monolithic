@@ -1,8 +1,8 @@
 package com.continew.uniqbackend.dto;
 
-public class Content {
+public class Contentdata {
 	String con_id;
-	int conid;
+	String id;
 	String con;
 
 
@@ -15,12 +15,12 @@ public class Content {
 		this.con_id = con_id;
 	}
 
-	public int getConid() {
-		return conid;
+	public String getId() {
+		return id;
 	}
 
-	public void setConid(int conid) {
-		this.conid = conid;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getCon() {

@@ -11,19 +11,18 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Table(name = "multipleChoice")
-public class Content {
+public class Contents {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMult", nullable = false)
-    private Integer id;
+    private String id;
 
-    @Column(name = "idQuestion", nullable = false)
-    private Integer question_id;
 
     @Column(name = "subQuestion", nullable = false)
-    private String content;
+    private String con;
 
 
     @ManyToOne(fetch =  FetchType.LAZY)
+    @JoinColumn(name="questionid", referencedColumnName="id_question",insertable=false, updatable=false)
     private Question question;
 }

@@ -1,5 +1,6 @@
 package com.continew.uniqbackend.entity;
 
+import com.continew.uniqbackend.dto.QuestionDTO;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -15,9 +16,9 @@ import java.util.List;
 @Table(name = "survey")
 public class Survey {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_survey", nullable = false)
-    private Integer id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -28,8 +29,8 @@ public class Survey {
     @Column(name = "tag")
     private String tag;
 
-    @Column(name = "like")
-    private int like;
+    @Column(name = "likenum")
+    private Integer likenum;
 
     @Column(name = "timestamp", nullable = false, updatable = false, insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Timestamp timestamp;
@@ -38,7 +39,7 @@ public class Survey {
     private String url;
 
     @Column(name = "writer")
-    private String writer;
+    private Integer writer;
 
 
     @Column(name = "category")
@@ -52,6 +53,10 @@ public class Survey {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
@@ -74,12 +79,12 @@ public class Survey {
         this.tag = tag;
     }
 
-    public int getLike() {
-        return like;
+    public Integer getLikenum() {
+        return likenum;
     }
 
-    public void setLikes(int like) {
-        this.like = like;
+    public void setLikenum(Integer likenum) {
+        this.likenum = likenum;
     }
 
     public Timestamp getTimestamp() {
@@ -98,15 +103,15 @@ public class Survey {
         this.url = url;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public String getWriter() {
+    public Integer getWriter() {
         return writer;
     }
 
-    public void setWriter(String writer) {
+    public void setWriter(Integer writer) {
         this.writer = writer;
     }
 
@@ -127,15 +132,14 @@ public class Survey {
     }
 
     @Builder
-    public Survey(Integer id, String title, String subtitle, List<Question> question,
-                String tag, int like, Timestamp timestamp, String url, String category, String writer) {
+    public Survey(Long id, String title, String subtitle,
+                String tag, int likenum, Timestamp timestamp, String url, String category, Integer writer) {
 
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
-        this.question = question;
         this.tag = tag;
-        this.like = like;
+        this.likenum = likenum;
         this.timestamp = timestamp;
         this.url = url;
         this.writer = writer;

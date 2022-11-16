@@ -8,6 +8,6 @@ public interface DataDTOInterface {
     String getType();
      String getTitle() ;
      Integer getSurvey_id() ;
-   List<Content> getContent();
+   List<Contentdata> getContent();
 
 }

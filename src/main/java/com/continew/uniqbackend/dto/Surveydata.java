@@ -18,7 +18,7 @@ public class Surveydata {
     String maintitle;
     String subtitle;
 
-    List<Question> data;
+    List<QuestionDTO> data;
     String url;
 
     String tag;
@@ -55,11 +55,11 @@ public class Surveydata {
         this.subtitle = subtitle;
     }
 
-    public List<Question> getData() {
+    public List<QuestionDTO> getData() {
         return data;
     }
 
-    public void setData(List<Question> data) {
+    public void setData(List<QuestionDTO> data) {
         this.data = data;
     }
 

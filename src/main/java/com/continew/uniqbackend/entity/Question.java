@@ -33,7 +33,7 @@ public class Question {
     private List<Contents> content = new ArrayList<>();
 
     @ManyToOne(fetch =  FetchType.LAZY, optional=false, cascade=CascadeType.ALL)
-    @JoinColumn(name="id_survey", referencedColumnName="id_survey",insertable=false, updatable=false)
+    @JoinColumn(name="id_survey", referencedColumnName="id_survey")
     private Survey survey;
 
     @Builder

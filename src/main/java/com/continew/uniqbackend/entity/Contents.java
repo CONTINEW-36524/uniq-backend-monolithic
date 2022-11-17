@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @ToString
 @Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @Entity
@@ -13,16 +14,26 @@ import javax.persistence.*;
 @Table(name = "multipleChoice")
 public class Contents {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idMult", nullable = false)
-    private String id;
+    private Long idmult;
 
 
-    @Column(name = "subQuestion", nullable = false)
+    @Column(name = "subQuestion")
     private String con;
 
 
-    @ManyToOne(fetch =  FetchType.LAZY)
-    @JoinColumn(name="questionid", referencedColumnName="id_question",insertable=false, updatable=false)
+    @ManyToOne(fetch =  FetchType.LAZY, optional=false, cascade=CascadeType.ALL)
+    @JoinColumn(name="id_question", referencedColumnName="id_question")
     private Question question;
+
+    @Builder
+    public Contents(String con, Question question) {
+
+
+        this.con = con;
+        this.question=question;
+
+
+    }
 }

@@ -1,8 +1,10 @@
 package com.continew.uniqbackend.controller;
 import com.continew.uniqbackend.UniqBackendApplication;
 import com.continew.uniqbackend.dto.Surveydata;
+import com.continew.uniqbackend.entity.Contents;
 import com.continew.uniqbackend.entity.Question;
 import com.continew.uniqbackend.entity.Survey;
+import com.continew.uniqbackend.repository.ContentsRepository;
 import com.continew.uniqbackend.repository.QuestionRepository;
 import com.continew.uniqbackend.repository.SurveyRepository;
 import org.slf4j.Logger;
@@ -24,6 +26,9 @@ public class SurveyController {
     private SurveyRepository surveyRepository;
     @Autowired
     private QuestionRepository questionRepository;
+
+    @Autowired
+    private ContentsRepository contentsRepository;
 
 
     //최신 템플릿
@@ -54,14 +59,25 @@ public class SurveyController {
                 subtitle(data123.getSubtitle()).build();
 
          // surveyRepository.save(data2);
-
+    for(int i=0;i<data123.getData().size();i++) {
         Question question1 = Question.builder().
-                title(data123.getData().get(0).getTitle())
-                        .survey(data2).build();
-        questionRepository.save(question1);
+                title(data123.getData().get(i).getTitle())
+                .survey(data2).build();
         data2.getQuestion().add(question1);
+        questionRepository.save(question1);
+    for(int k=0;k<data123.getData().get(i).getContentdata().size();k++)
+        {
+            System.out.println("111");
+            Contents contents = Contents.builder().
+                    con(data123.getData().get(i).getContentdata().get(k).getCon())
+                    .question(question1).build();
+//            question1.getContent().add(contents);
+            contentsRepository.save(contents);
+        }
+    }
 
-        System.out.println(surveyRepository.findtest().get(1).getQuestion().get(0).getTitle());
+
+       // System.out.println(surveyRepository.findtest());
 
         // 2.Repository에 entity를 db로 저장하게 함
 //        Survey save = surveyRepository.save(survey);

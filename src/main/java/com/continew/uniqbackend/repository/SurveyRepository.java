@@ -14,7 +14,7 @@ public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     public List<Survey> findRecentSurvey(@Param(value = "user_id") int user_id);
 
     //내가 찜한 템플릿
-    @Query(value = "select * from survey left join fav_survey on survey.id_survey = fav_survey.id_survey where fav_survey.user_code = :user_id", nativeQuery = true)
+    @Query(value = "select survey.* from survey left join fav_survey on survey.id_survey = fav_survey.id_survey where fav_survey.user_code = :user_id", nativeQuery = true)
     public List<Survey> findFavSurvey(@Param(value = "user_id") int user_id);
 
 

@@ -32,12 +32,12 @@ public class RespondE {
         this.surveyid = surveyid;
     }
 
-    public String getId() {
-        return id;
+    public String getRid_question() {
+        return rid_question;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRid_question(String rid_question) {
+        this.rid_question = rid_question;
     }
 
     public String getAnswer() {
@@ -48,8 +48,8 @@ public class RespondE {
         this.answer = answer;
     }
 
-    @Column(name = "id")
-    private String  id;
+    @Column(name = "rid_question")
+    private String  rid_question;
 
     @Column(name = "answer")
     private String answer;
@@ -60,15 +60,15 @@ public class RespondE {
         return "RespondE{" +
                 "respondid=" + respondid +
                 ", surveyid=" + surveyid +
-                ", id='" + id + '\'' +
+                ", rid_question='" + rid_question + '\'' +
                 ", answer='" + answer + '\'' +
                 '}';
     }
 
-    public RespondE(Long respondid, Long surveyid, String id, String answer){
+    public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
         this.surveyid=surveyid;
         this.respondid=respondid;
-        this.id=id;
+        this.rid_question=rid_question;
         this.answer=answer;
     }
 }

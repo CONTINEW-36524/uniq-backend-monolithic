@@ -39,7 +39,7 @@ public class Respond {
 
 
     public RespondE toEntity(int i){
-        return new RespondE(null,surveyid,responddata.get(i).getId(),responddata.get(i).getAnswer() );
+        return new RespondE(null,surveyid,responddata.get(i).getRid_question(),responddata.get(i).getAnswer() );
     }
 }
 

@@ -11,10 +11,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-@Table(name = "multipleChoice")
+@Table(name = "contents")
 public class Contents {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMult", nullable = false)
     private Long idmult;
 
@@ -24,7 +24,7 @@ public class Contents {
 
 
     @ManyToOne(fetch =  FetchType.LAZY, optional=false, cascade=CascadeType.ALL)
-    @JoinColumn(name="id_question", referencedColumnName="id_question")
+    @JoinColumn(name="cid_question", referencedColumnName="id_question")
     private Question question;
 
     @Builder

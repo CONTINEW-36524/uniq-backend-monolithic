@@ -30,10 +30,10 @@ public class QuestionDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public List<Contentdata> getContent() {
+	public List<Contentdata> getContentdata() {
 		return content;
 	}
-	public void setContent(List<Contentdata> content) {
+	public void setContentdata(List<Contentdata> content) {
 		this.content = content;
 	}
 

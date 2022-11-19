@@ -1,6 +1,7 @@
 package com.continew.uniqbackend.entity;
 
 import com.continew.uniqbackend.dto.QuestionDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -16,12 +17,12 @@ import java.util.List;
 @Table(name = "survey")
 public class Survey {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_survey", nullable = false)
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "maintitle")
+    private String maintitle;
 
     @Column(name = "subtitle")
     private String subtitle;
@@ -46,22 +47,19 @@ public class Survey {
     private String category;
 
     //추가, 조인 컬럼 삭제
+    @JsonIgnore
     @OneToMany(mappedBy = "survey",  cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> question = new ArrayList<>();
 
 
 
-    public String getTitle() {
-        return title;
-    }
+
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+
 
     public String getSubtitle() {
         return subtitle;
@@ -131,12 +129,20 @@ public class Survey {
         this.category = category;
     }
 
+    public String getMaintitle() {
+        return maintitle;
+    }
+
+    public void setMaintitle(String maintitle) {
+        this.maintitle = maintitle;
+    }
+
     @Builder
-    public Survey(Long id, String title, String subtitle,
+    public Survey(Long id, String maintitle, String subtitle,
                 String tag, int likenum, Timestamp timestamp, String url, String category, Integer writer) {
 
         this.id = id;
-        this.title = title;
+        this.maintitle = maintitle;
         this.subtitle = subtitle;
         this.tag = tag;
         this.likenum = likenum;

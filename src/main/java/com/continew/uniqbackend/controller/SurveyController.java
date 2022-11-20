@@ -61,15 +61,13 @@ public class SurveyController {
 
     @PostMapping("/create/survey")
     public String postsurvey (@RequestBody Surveydata data123){
-        // 1.DTO->Entity변환
-//        Survey survey = data.toEntity();
-//        log.info(survey.toString());
         System.out.println(data123);
         Survey data2= Survey.builder().
                 maintitle(data123.getMaintitle()).
-                subtitle(data123.getSubtitle()).build();
+                subtitle(data123.getSubtitle()).
+                url(data123.getUrl()).build();
 
-         // surveyRepository.save(data2);
+
     for(int i=0;i<data123.getData().size();i++) {
         Question question1 = Question.builder().
                 title(data123.getData().get(i).getTitle())
@@ -83,7 +81,6 @@ public class SurveyController {
             Contents contents = Contents.builder().
                     con(data123.getData().get(i).getContentdata().get(k).getCon())
                     .question(question1).build();
-//            question1.getContent().add(contents);
             contentsRepository.save(contents);
         }
     }

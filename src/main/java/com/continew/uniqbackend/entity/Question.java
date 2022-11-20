@@ -29,7 +29,6 @@ public class Question {
     private String type;
 
 
-
     @JsonIgnore
     @OneToMany(mappedBy = "question",  cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contents> content = new ArrayList<>();

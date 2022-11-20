@@ -16,9 +16,6 @@ public class RespondE {
     @Column(name = "surveyid")
     private Long surveyid;
 
-    @Column(name = "questionid")
-    private Long  questionid;
-
     @Column(name = "answer")
     private String answer;
 
@@ -53,7 +50,6 @@ public class RespondE {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
-
 
     @Column(name = "rid_question")
     private String  rid_question;

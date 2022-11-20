@@ -28,21 +28,17 @@ public class Question {
     private String type;
 
 
-
     @OneToMany(mappedBy = "question",  cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contents> content = new ArrayList<>();
 
     @ManyToOne(fetch =  FetchType.LAZY, optional=false, cascade=CascadeType.ALL)
-    @JoinColumn(name="id_survey", referencedColumnName="id_survey")
+    @JoinColumn(name="qid_survey", referencedColumnName="id_survey")
     private Survey survey;
 
     @Builder
     public Question(String title, Survey survey) {
-
-
         this.title = title;
         this.survey=survey;
-
 
     }
 }

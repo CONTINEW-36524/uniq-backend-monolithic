@@ -1,14 +1,14 @@
 package com.continew.uniqbackend.dto;
 
 public class Responddata {
-    private String id;
+    private Long id;
     private String answer;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

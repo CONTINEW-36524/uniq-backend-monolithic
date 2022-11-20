@@ -3,6 +3,7 @@ package com.continew.uniqbackend.entity;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +16,11 @@ public class RespondE {
     @Column(name = "surveyid")
     private Long surveyid;
 
+    @Column(name = "questionid")
+    private Long  questionid;
+
+    @Column(name = "answer")
+    private String answer;
 
     public Long getRespondid() {
         return respondid;
@@ -32,12 +38,12 @@ public class RespondE {
         this.surveyid = surveyid;
     }
 
-    public String getId() {
-        return id;
+    public Long getQuestionid() {
+        return questionid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setQuestionid(Long questionid) {
+        this.questionid = questionid;
     }
 
     public String getAnswer() {
@@ -48,11 +54,7 @@ public class RespondE {
         this.answer = answer;
     }
 
-    @Column(name = "id")
-    private String  id;
 
-    @Column(name = "answer")
-    private String answer;
 
 
     @Override
@@ -60,15 +62,15 @@ public class RespondE {
         return "RespondE{" +
                 "respondid=" + respondid +
                 ", surveyid=" + surveyid +
-                ", id='" + id + '\'' +
+                ", questionid='" + questionid + '\'' +
                 ", answer='" + answer + '\'' +
                 '}';
     }
 
-    public RespondE(Long respondid, Long surveyid, String id, String answer){
+    public RespondE(Long respondid, Long surveyid, Long questionid, String answer){
         this.surveyid=surveyid;
         this.respondid=respondid;
-        this.id=id;
+        this.questionid=questionid;
         this.answer=answer;
     }
 }

@@ -30,7 +30,6 @@ public class Contents {
     @Builder
     public Contents(String con, Question question) {
 
-
         this.con = con;
         this.question=question;
 

@@ -1,5 +1,7 @@
 package com.continew.uniqbackend.controller;
+import com.continew.uniqbackend.Service.SurveyService;
 import com.continew.uniqbackend.UniqBackendApplication;
+import com.continew.uniqbackend.dto.ResultDTO;
 import com.continew.uniqbackend.dto.DataDTOInterface;
 import com.continew.uniqbackend.dto.Surveydata;
 import com.continew.uniqbackend.dto.contentsDTO;
@@ -8,13 +10,13 @@ import com.continew.uniqbackend.entity.Question;
 import com.continew.uniqbackend.entity.Survey;
 import com.continew.uniqbackend.repository.ContentsRepository;
 import com.continew.uniqbackend.repository.QuestionRepository;
+import com.continew.uniqbackend.repository.ResultRepository;
 import com.continew.uniqbackend.repository.SurveyRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +36,11 @@ public class SurveyController {
     @Autowired
     private ContentsRepository contentsRepository;
 
+    @Autowired
+    private ResultRepository resultRepository;
+
+    @Autowired
+    private SurveyService surveyService;
 
     //최신 템플릿
     @GetMapping("/template/recent")
@@ -46,7 +53,7 @@ public class SurveyController {
     //인기 템플릿
     @GetMapping("/template/popular")
     public List<Survey> getPopular(){
-        List<Survey> surveys = surveyRepository.findAll(Sort.by(Sort.Direction.DESC, "like"));
+        List<Survey> surveys = surveyRepository.findAll(Sort.by(Sort.Direction.DESC, "likenum"));
         log.info(surveys.toString());
 
         return surveys;
@@ -54,15 +61,13 @@ public class SurveyController {
 
     @PostMapping("/create/survey")
     public String postsurvey (@RequestBody Surveydata data123){
-        // 1.DTO->Entity변환
-//        Survey survey = data.toEntity();
-//        log.info(survey.toString());
         System.out.println(data123);
         Survey data2= Survey.builder().
                 maintitle(data123.getMaintitle()).
-                subtitle(data123.getSubtitle()).build();
+                subtitle(data123.getSubtitle()).
+                url(data123.getUrl()).build();
 
-         // surveyRepository.save(data2);
+
     for(int i=0;i<data123.getData().size();i++) {
         Question question1 = Question.builder().
                 title(data123.getData().get(i).getTitle())
@@ -76,19 +81,23 @@ public class SurveyController {
             Contents contents = Contents.builder().
                     con(data123.getData().get(i).getContentdata().get(k).getCon())
                     .question(question1).build();
-//            question1.getContent().add(contents);
             contentsRepository.save(contents);
         }
     }
-
-
-       // System.out.println(surveyRepository.findtest());
-
-        // 2.Repository에 entity를 db로 저장하게 함
-//        Survey save = surveyRepository.save(survey);
-
         return "good";
     }
+
+
+    @GetMapping("/result")
+    public List<ResultDTO> getResult(){
+        // url로 설문지 찾고 surveyid 찾아오고 그걸로 question이랑 content groupby로 값 가져오기
+        // questionid
+        // union all select 결과 모두 합치기
+        List<ResultDTO> result = surveyService.getResult(100);
+        System.out.println(result);
+        return result;
+    }
+
 
     @GetMapping("/create/respond")
     public HashMap<Long,List<DataDTOInterface>> getrespondpage(@RequestParam String url){

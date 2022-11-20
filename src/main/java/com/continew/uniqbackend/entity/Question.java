@@ -39,12 +39,9 @@ public class Question {
 
     @Builder
     public Question(String title,String type, Survey survey) {
-
-
         this.title = title;
         this.survey=survey;
         this.type=type;
-
 
     }
 }

@@ -3,6 +3,7 @@ package com.continew.uniqbackend.entity;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +16,8 @@ public class RespondE {
     @Column(name = "surveyid")
     private Long surveyid;
 
+    @Column(name = "answer")
+    private String answer;
 
     public Long getRespondid() {
         return respondid;
@@ -50,10 +53,6 @@ public class RespondE {
 
     @Column(name = "rid_question")
     private String  rid_question;
-
-    @Column(name = "answer")
-    private String answer;
-
 
     @Override
     public String toString() {

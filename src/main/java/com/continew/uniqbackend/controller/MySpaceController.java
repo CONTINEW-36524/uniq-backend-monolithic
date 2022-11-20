@@ -30,15 +30,15 @@ public class MySpaceController {
 
 
     @GetMapping("/my-uniq")
-    public List<Survey> getMySurvey(@RequestParam("user_id") int user_id){
-        List<Survey> surveys = surveyRepository.findRecentSurvey(user_id);
+    public List<Survey> getMySurvey(@RequestParam("user_id") int user_id, @RequestParam("category") String category, @RequestParam("like") String like){
+        List<Survey> surveys = surveyRepository.findRecentSurvey(user_id, category, like);
 
         return surveys;
     }
 
     @GetMapping("/my-favorites")
-    public List<Survey> getFav(@RequestParam("user_id") int user_id){
-        List<Survey> surveys = surveyRepository.findFavSurvey(user_id);
+    public List<Survey> getFav(@RequestParam("user_id") int user_id, @RequestParam("category") String category, @RequestParam("like") String like){
+        List<Survey> surveys = surveyRepository.findFavSurvey(user_id, category, like);
         log.info(surveys.toString());
 
         return surveys;

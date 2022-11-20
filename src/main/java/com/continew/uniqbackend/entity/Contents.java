@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Table(name = "contents")
 public class Contents {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idMult", nullable = false)
     private Long idmult;
 

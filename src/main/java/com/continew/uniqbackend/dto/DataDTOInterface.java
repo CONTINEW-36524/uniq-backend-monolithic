@@ -4,10 +4,13 @@ import java.util.List;
 
 public interface DataDTOInterface {
 
-    String getDid();
-    String getType();
+    Long getId_question();
+    Long getId_mult();
+    Long getId_survey();
+    String getMaintitle();
+    String getSubtitle();
+    String getsub_question();
      String getTitle() ;
-     Integer getSurvey_id() ;
-   List<Contentdata> getContent();
+     String gettype() ;
 
 }

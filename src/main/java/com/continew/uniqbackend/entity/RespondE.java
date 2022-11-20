@@ -38,12 +38,12 @@ public class RespondE {
         this.surveyid = surveyid;
     }
 
-    public Long getQuestionid() {
-        return questionid;
+    public String getRid_question() {
+        return rid_question;
     }
 
-    public void setQuestionid(Long questionid) {
-        this.questionid = questionid;
+    public void setRid_question(String rid_question) {
+        this.rid_question = rid_question;
     }
 
     public String getAnswer() {
@@ -55,22 +55,23 @@ public class RespondE {
     }
 
 
-
+    @Column(name = "rid_question")
+    private String  rid_question;
 
     @Override
     public String toString() {
         return "RespondE{" +
                 "respondid=" + respondid +
                 ", surveyid=" + surveyid +
-                ", questionid='" + questionid + '\'' +
+                ", rid_question='" + rid_question + '\'' +
                 ", answer='" + answer + '\'' +
                 '}';
     }
 
-    public RespondE(Long respondid, Long surveyid, Long questionid, String answer){
+    public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
         this.surveyid=surveyid;
         this.respondid=respondid;
-        this.questionid=questionid;
+        this.rid_question=rid_question;
         this.answer=answer;
     }
 }

@@ -1,5 +1,6 @@
 package com.continew.uniqbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,7 +18,7 @@ import java.util.List;
 @Table(name = "question")
 public class Question {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_question", nullable = false)
     private Integer id;
 
@@ -28,6 +29,8 @@ public class Question {
     private String type;
 
 
+
+    @JsonIgnore
     @OneToMany(mappedBy = "question",  cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contents> content = new ArrayList<>();
 
@@ -36,9 +39,10 @@ public class Question {
     private Survey survey;
 
     @Builder
-    public Question(String title, Survey survey) {
+    public Question(String title,String type, Survey survey) {
         this.title = title;
         this.survey=survey;
+        this.type=type;
 
     }
 }

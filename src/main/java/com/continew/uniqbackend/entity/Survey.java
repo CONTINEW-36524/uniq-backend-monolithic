@@ -17,7 +17,7 @@ import java.util.List;
 @Table(name = "survey")
 public class Survey {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_survey", nullable = false)
     private Long id;
 
@@ -52,17 +52,8 @@ public class Survey {
     private List<Question> question = new ArrayList<>();
 
 
-
-    public String getMaintitle() {
-        return maintitle;
-    }
-
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public void setMaintitle(String maintitle) {
-        this.maintitle = maintitle;
     }
 
     public String getSubtitle() {
@@ -131,6 +122,14 @@ public class Survey {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getMaintitle() {
+        return maintitle;
+    }
+
+    public void setMaintitle(String maintitle) {
+        this.maintitle = maintitle;
     }
 
     @Builder

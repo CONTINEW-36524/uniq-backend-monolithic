@@ -2,7 +2,9 @@ package com.continew.uniqbackend.controller;
 import com.continew.uniqbackend.Service.SurveyService;
 import com.continew.uniqbackend.UniqBackendApplication;
 import com.continew.uniqbackend.dto.ResultDTO;
+import com.continew.uniqbackend.dto.DataDTOInterface;
 import com.continew.uniqbackend.dto.Surveydata;
+import com.continew.uniqbackend.dto.contentsDTO;
 import com.continew.uniqbackend.entity.Contents;
 import com.continew.uniqbackend.entity.Question;
 import com.continew.uniqbackend.entity.Survey;
@@ -15,8 +17,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-
-import javax.xml.transform.Result;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -71,7 +73,8 @@ public class SurveyController {
     for(int i=0;i<data123.getData().size();i++) {
         Question question1 = Question.builder().
                 title(data123.getData().get(i).getTitle())
-                .survey(data2).build();
+                .survey(data2)
+                .type(data123.getData().get(i).getType()).build();
         data2.getQuestion().add(question1);
         questionRepository.save(question1);
     for(int k=0;k<data123.getData().get(i).getContentdata().size();k++)
@@ -87,6 +90,7 @@ public class SurveyController {
         return "good";
     }
 
+
     @GetMapping("/result")
     public List<ResultDTO> getResult(){
         // url로 설문지 찾고 surveyid 찾아오고 그걸로 question이랑 content groupby로 값 가져오기
@@ -96,5 +100,36 @@ public class SurveyController {
         System.out.println(result);
         return result;
     }
+
+
+    @GetMapping("/create/respond")
+    public HashMap<Long,List<DataDTOInterface>> getrespondpage(@RequestParam String url){
+        List<DataDTOInterface> aa= surveyRepository.findbyurl(url);
+        System.out.println(aa.get(0));
+        HashMap<Long,List<DataDTOInterface>> respond = new HashMap<>();
+        List<DataDTOInterface> contents =new ArrayList<>();
+        long prev_qid=-1;
+        for (DataDTOInterface dataDTOInterface : aa) {
+            if (prev_qid == -1) {
+                prev_qid = dataDTOInterface.getId_question();
+                System.out.println(prev_qid);
+                contents.add(dataDTOInterface);
+            } else if (!(prev_qid==dataDTOInterface.getId_question())) {
+                respond.put(prev_qid,contents );
+                prev_qid=dataDTOInterface.getId_question();
+                System.out.println(prev_qid);
+                contents=new ArrayList<>();
+                contents.add(dataDTOInterface);
+            }
+            else{
+                contents.add(dataDTOInterface);
+            }
+        }
+        respond.put(prev_qid,contents);
+        System.out.println(respond);
+
+        return respond;
+    }
+
 
 }

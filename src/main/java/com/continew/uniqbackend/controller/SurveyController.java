@@ -60,7 +60,8 @@ public class SurveyController {
         System.out.println(data123);
         Survey data2= Survey.builder().
                 maintitle(data123.getMaintitle()).
-                subtitle(data123.getSubtitle()).build();
+                subtitle(data123.getSubtitle()).
+                url(data123.getUrl()).build();
 
          // surveyRepository.save(data2);
     for(int i=0;i<data123.getData().size();i++) {

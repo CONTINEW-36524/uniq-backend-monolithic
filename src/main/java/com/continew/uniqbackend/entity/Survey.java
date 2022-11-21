@@ -52,14 +52,9 @@ public class Survey {
     private List<Question> question = new ArrayList<>();
 
 
-
-
-
     public void setId(Long id) {
         this.id = id;
     }
-
-
 
     public String getSubtitle() {
         return subtitle;

@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: continew
     password: continew36524
-    url: ${UNIQ_DATABASE_URL}
+    url: jdbc:mysql://210.109.60.250:10007/uniqdb?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8&connectTimeout=2000&autoReconnect=true&serverTimezone=UTC&useSSL=false
 
 
   #JPA/Hibernate

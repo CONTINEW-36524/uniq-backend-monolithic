@@ -8,10 +8,12 @@ import com.continew.uniqbackend.dto.contentsDTO;
 import com.continew.uniqbackend.entity.Contents;
 import com.continew.uniqbackend.entity.Question;
 import com.continew.uniqbackend.entity.Survey;
+import com.continew.uniqbackend.entity.RespondE;
 import com.continew.uniqbackend.repository.ContentsRepository;
 import com.continew.uniqbackend.repository.QuestionRepository;
 import com.continew.uniqbackend.repository.ResultRepository;
 import com.continew.uniqbackend.repository.SurveyRepository;
+import com.continew.uniqbackend.repository.RespondERepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,9 @@ public class SurveyController {
     @Autowired
     private SurveyService surveyService;
 
+    @Autowired
+    private RespondERepository respondERepository;
+    
     //최신 템플릿
     @GetMapping("/template/recent")
     public List<Survey> getRecent(){
@@ -128,5 +133,12 @@ public class SurveyController {
         return respond;
     }
 
+    @GetMapping("/respond/read/answer")
+    public List<RespondE> getRespondE(){
+        List<RespondE> responds = respondERepository.selectRes();
+        log.info(responds.toString());
+
+        return responds;
+    }
 
 }

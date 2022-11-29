@@ -133,7 +133,7 @@ public class SurveyController {
         return respond;
     }
 
-    @GetMapping("/respond/read/answer")
+    @GetMapping("/read/answer")
     public List<RespondE> getRespondE(){
         List<RespondE> responds = respondERepository.selectRes();
         log.info(responds.toString());

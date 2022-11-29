@@ -134,8 +134,8 @@ public class SurveyController {
     }
 
     @GetMapping("/read/answer")
-    public List<RespondE> getRespondE(){
-        List<RespondE> responds = respondERepository.selectRes();
+    public List<RespondE> getRespondE(@RequestParam("type") String type){
+        List<RespondE> responds = respondERepository.selectRes(type);
         log.info(responds.toString());
 
         return responds;

@@ -133,7 +133,7 @@ public class SurveyController {
         return respond;
     }
 
-    @GetMapping("/respond/read/answer")
+    @GetMapping("/read/answer")
     public List<RespondE> getRespondE(){
         List<RespondE> responds = respondERepository.selectRes();
         log.info(responds.toString());
@@ -141,4 +141,11 @@ public class SurveyController {
         return responds;
     }
 
+    @GetMapping("/ai/using")
+    public List<RespondE> getAi(@RequestParam("surveyid") int surveyid){
+        List<RespondE> aiData = respondERepository.selectData(surveyid);
+        log.info(aiData.toString());
+
+        return aiData;
+    }
 }

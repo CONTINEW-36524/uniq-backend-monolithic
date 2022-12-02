@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface SurveyRepository extends JpaRepository<Survey, Integer> {
     //내가 최근에 만든 템플릿 = myuniq
-    @Query(value = "select * from survey where writer = :user_id and survey.category LIKE :category and survey.likenum > :like", nativeQuery = true)
+    @Query(value = "select * from survey where survey.writer = :user_id and survey.category LIKE :category and survey.likenum > :like", nativeQuery = true)
     public List<Survey> findRecentSurvey(@Param(value = "user_id") int user_id, @Param(value = "category") String category, @Param(value = "like") String like);
 
     //내가 찜한 템플릿
